@@ -18,6 +18,7 @@ extern ADLivelyTransform ADLivelyTransformFlip;
 extern ADLivelyTransform ADLivelyTransformHelix;
 extern ADLivelyTransform ADLivelyTransformTilt;
 extern ADLivelyTransform ADLivelyTransformWave;
+extern ADLivelyTransform BPLivelyTransformFlip;
 
 @interface ADLivelyTableView : UITableView <UITableViewDelegate> {
     id <UITableViewDelegate>  _preLivelyDelegate;

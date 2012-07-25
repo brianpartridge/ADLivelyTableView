@@ -46,7 +46,7 @@
                                                               delegate:self
                                                      cancelButtonTitle:@"Cancel"
                                                 destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"Fan", @"Curl", @"Fade", @"Helix", @"Wave", nil];
+                                                     otherButtonTitles:@"Fan", @"Curl", @"Fade", @"Helix", @"Wave", @"Flip", nil];
     [actionSheet showFromBarButtonItem:sender animated:YES];
     [actionSheet release];
 }
@@ -54,7 +54,7 @@
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
-    NSArray * transforms = [NSArray arrayWithObjects:ADLivelyTransformFan, ADLivelyTransformCurl, ADLivelyTransformFade, ADLivelyTransformHelix, ADLivelyTransformWave, nil];
+    NSArray * transforms = [NSArray arrayWithObjects:ADLivelyTransformFan, ADLivelyTransformCurl, ADLivelyTransformFade, ADLivelyTransformHelix, ADLivelyTransformWave, BPLivelyTransformFlip, nil];
 
     if (buttonIndex < [transforms count]) {
         livelyTableView.initialCellTransformBlock = [transforms objectAtIndex:buttonIndex];

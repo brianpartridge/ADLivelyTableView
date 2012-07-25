@@ -76,6 +76,17 @@ ADLivelyTransform ADLivelyTransformWave = ^(CALayer * layer, float speed){
     return ADLivelyDefaultDuration;
 };
 
+ADLivelyTransform BPLivelyTransformFlip = ^(CALayer *layer, float speed) {
+   CATransform3D transform = CATransform3DIdentity;
+   transform.m34 = 1.0 / -500;
+   CGFloat sign = CGFloatSign(speed);
+   transform = CATransform3DTranslate(transform, 0.0f, sign * layer.bounds.size.height/2.0f, 0.0f);
+   transform = CATransform3DRotate(transform, sign * M_PI/2, 1.0f, 0.0f, 0.0f);
+   transform = CATransform3DTranslate(transform, 0.0f, sign * -layer.bounds.size.height/2.0f, 0.0f);
+   layer.transform = transform;
+   return 2 * ADLivelyDefaultDuration;
+};
+
 @implementation ADLivelyTableView
 #pragma mark - NSObject
 - (void)dealloc {
